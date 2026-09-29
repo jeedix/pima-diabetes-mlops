@@ -31,17 +31,7 @@ pipeline.model
     For further information visit https://errors.pydantic.dev/2.13/v/literal_error
 
 
-
-=== Контроль 4: невалидный test_size (1.5 > 0.4) ===
-<pydantic traceback про data.test_size>
-
-=== Контроль 5: несуществующий путь к данным ===
-<pydantic traceback про data.raw_path>
-
-=== Контроль 6: неизвестная модель (xgboost) ===
-<pydantic traceback про pipeline.model>
-
-=== Контроль 7: утечка (scaler на train vs train+test) ===
+=== Контроль 4: утечка (scaler на train vs train+test) ===
 OK: mean(train) = [ 0. -0.  0.]
 OK: mean(test) = [ 0.154  0.006 -0.084]
 LEAK: mean(train) = [-0.03  -0.001  0.016]
