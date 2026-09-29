@@ -1,0 +1,35 @@
+# Данные
+data/raw/*.csv
+!data/raw/.gitkeep
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Секреты
+.env
+.secrets.baseline
+
+# Логи
+logs/*.log
+!logs/.gitkeep
+
+# Модели
+artifacts/
+*.joblib
+*.pt
+*.npz
+
+# ОС
+.DS_Store
+Thumbs.db

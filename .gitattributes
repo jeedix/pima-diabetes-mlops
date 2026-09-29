@@ -1,0 +1,15 @@
+* text=auto eol=lf
+
+*.csv binary
+*.parquet binary
+*.pkl binary
+
+*.joblib binary
+*.pt binary
+*.npz binary
+*.onnx binary
+
+*.png binary
+*.jpg binary
+
+*.ipynb diff=ipynb
