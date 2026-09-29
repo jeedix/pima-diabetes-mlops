@@ -26,4 +26,4 @@ repos:
     hooks:
       - id: detect-secrets
         args: ['--baseline', '.secrets.baseline']
-        exclude: '(package-lock\.json|\.lock|hash_manifest\.json|eda_summary\.json)$'
+        exclude: '(package-lock\.json|\.lock|hash_manifest\.json|eda_summary\.json|lab2_summary\.json)$'

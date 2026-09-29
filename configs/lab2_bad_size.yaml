@@ -1,0 +1,17 @@
+data:
+  raw_path: data/raw/pima-indians-diabetes.csv
+  target: Outcome
+  test_size: 1.5        # ← невалидно: должен быть 0.1..0.4
+  seed: 42
+  chunk_size: 128
+
+pipeline:
+  imputer_strategy: median
+  scaler: standard
+  model: logreg
+  model_params: {}
+
+training:
+  mode: full
+  n_bootstrap: 1000
+  mlflow_experiment: lab2_pima

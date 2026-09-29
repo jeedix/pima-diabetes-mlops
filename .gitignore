@@ -3,6 +3,8 @@ data/raw/*.csv
 !data/raw/.gitkeep
 
 # MLflow
+mlflow.db
+mlflow.db-journal
 mlruns/
 mlartifacts/
 

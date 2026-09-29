@@ -1,0 +1,20 @@
+data:
+  raw_path: data/raw/pima-indians-diabetes.csv
+  target: Outcome
+  test_size: 0.2
+  seed: 42
+  chunk_size: 128
+
+pipeline:
+  imputer_strategy: median
+  scaler: standard
+  model: sgd                # SGDClassifier поддерживает partial_fit
+  model_params:
+    loss: log_loss
+    max_iter: 1
+    tol: 0.001
+
+training:
+  mode: chunks
+  n_bootstrap: 1000
+  mlflow_experiment: lab2_pima
