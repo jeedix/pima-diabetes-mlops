@@ -49,10 +49,17 @@ def verify_manifest() -> bool:
 
 
 if __name__ == "__main__":
-    manifest = build_manifest()
-    MANIFEST.write_text(
-        json.dumps(manifest, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
-    print(f"Манифест сохранён: {MANIFEST}")
-    verify_manifest()
+    import sys
+
+    if len(sys.argv) > 1 and sys.argv[1] == "build":
+        # Режим генерации манифеста
+        manifest = build_manifest()
+        MANIFEST.write_text(
+            json.dumps(manifest, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
+        print(f"Манифест сохранён: {MANIFEST}")
+        verify_manifest()
+    else:
+        # Режим только проверки (по умолчанию)
+        verify_manifest()
