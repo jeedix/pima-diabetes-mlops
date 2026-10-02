@@ -36,3 +36,13 @@ OK: mean(train) = [ 0. -0.  0.]
 OK: mean(test) = [ 0.154  0.006 -0.084]
 LEAK: mean(train) = [-0.03  -0.001  0.016]
 LEAK: mean(test) = [ 0.121  0.005 -0.064]
+
+=== Контроль 5: невалидный chunk_size (8 < 16) ===
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from src.lab2_ml_pipeline import load_config; from pathlib import Path; load_config(Path('configs/lab2_bad_chunk.yaml'))
+  ...
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Lab2Config
+data.chunk_size
+  Input should be greater than or equal to 16 [type=greater_than_equal, input_value=8, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.13/v/greater_than_equal
