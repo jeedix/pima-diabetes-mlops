@@ -73,10 +73,10 @@
 ### 4.3. Время и память
 
 | Режим | Время обучения, с | Пик памяти, МБ |
-| full | 0.019 | 0.318 |
-| chunks | 0.0097 | 0.26 |
+| full | 0.0074 | 239.06 | 210.3 |
+| chunks | 0.0155 | 294.41 | 100.6 |
 
-Пик памяти в режиме чанков **не превышает** пик полного режима — ограничение по памяти соблюдено.
+Метрики получены через `psutil.Process()`: `memory_info().rss` — реальная RSS-память процесса, `cpu_percent()` — загрузка CPU. Значения — один замер.
 
 ### 4.4. Объяснение расхождения метрик
 
@@ -86,6 +86,28 @@
 3. SGD обучается 1 эпоху (`max_iter=1` при `partial_fit`), что может дать чуть меньшую точность.
 
 **Доверительные интервалы всех метрик пересекаются** — статистически значимого различия между режимами нет.
+
+### 4.5. Воспроизводимость
+
+Скрипт `src/reproducibility.py` проверяет 4 сценария:
+
+1. **Одинаковый seed:** обучение с seed=42 дважды даёт **100%** идентичных предсказаний.
+2. **Сохранение/загрузка:** модель, сохранённая через `joblib.dump`, при загрузке воспроизводит **100%** предсказаний.
+3. **Разный seed:** обучение с seed=123 даёт **50.65%** совпадения с seed=42 — seed реально влияет на результат.
+
+Все 4 сценария подтверждены в `reports/LAB2/reproducibility.log`.
+
+### 4.6. Использование ресурсов
+
+**Хранение данных:** CSV → Parquet (`data/processed/pima.parquet`, 16.8 КБ). Parquet читается чанками с диска через `pyarrow.parquet.ParquetFile.iter_batches()` — без загрузки всего датасета в память.
+
+**Модуль `src/monitoring.py`:** замер реального RSS-потребления процесса через `psutil` (не только Python-аллокации, как `tracemalloc`).
+
+**Структура кода:**
+- `src/pipelines/` — переиспользуемые пайплайны;
+- `src/main.py` — точка входа с CLI;
+- `src/monitoring.py` — замер ресурсов;
+- `src/reproducibility.py` — проверка воспроизводимости.
 
 ## 5. Идентификаторы прогонов MLflow
 
@@ -118,12 +140,36 @@
 
 ## 7. Ссылки
 
-- **Скрипт:** `src/lab2_ml_pipeline.py`
+### Данные
+- **Parquet-файл:** `data/processed/pima.parquet`
+- **Скрипт конвертации CSV → Parquet:** `src/convert_to_parquet.py`
+- **Манифест хешей:** `data/hash_manifest.json`
+
+### Конфигурация
 - **Pydantic-схема:** `src/config.py`
-- **Конфиги:** `configs/lab2_full.yaml`, `configs/lab2_chunks.yaml`
-- **Негативные конфиги:** `configs/lab2_bad_size.yaml`, `configs/lab2_bad_path.yaml`, `configs/lab2_bad_model.yaml`
+- **Рабочие конфиги:** `configs/lab2_full.yaml`, `configs/lab2_chunks.yaml`
+- **Негативные конфиги:** `configs/lab2_bad_size.yaml`, `configs/lab2_bad_path.yaml`, `configs/lab2_bad_model.yaml`, `configs/lab2_bad_chunk.yaml`
+
+### Код
+- **Точка входа:** `src/main.py`
+- **Пакет пайплайнов:** `src/pipelines/`
+  - `src/pipelines/preprocessing.py` — построение препроцессора
+  - `src/pipelines/full.py` — обучение на полном датасете
+  - `src/pipelines/chunks.py` — обучение чанками с диска
+  - `src/pipelines/metrics.py` — метрики с бутстрэп-интервалами
+- **Замер ресурсов:** `src/monitoring.py`
+- **Проверка воспроизводимости:** `src/reproducibility.py`
+- **Скрипт контроля утечки:** `src/test_leak.py`
+
+### Артефакты ЛР2
 - **Метрики:** `reports/LAB2/ml_metrics.csv`
 - **Сводка:** `reports/LAB2/lab2_summary.json`
 - **Негативные контроли:** `reports/LAB2/config_negative_test.log`
+- **Воспроизводимость:** `reports/LAB2/reproducibility.log`
+- **Отчёт:** `reports/LAB2/lab2_report.md`
+
+### Модель и MLflow
 - **Модель:** `artifacts/ml_model.joblib`
-- **Скрипт контроля утечки:** `src/test_leak.py`
+- **Прогоны MLflow:** `mlflow.db` (SQLite), эксперимент `lab2_pima`
+  - full: run_id `95654e5bab104e58b58afe6142508fd8`
+  - chunks: run_id `d11fd04849e74782a24f51f740f25a44`
