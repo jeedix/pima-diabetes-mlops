@@ -30,5 +30,19 @@
       "n_zero": 11,
       "share_pct": 1.43
     }
+  },
+  "resources": {
+    "read": {
+      "time_sec": 0.004,
+      "peak_mem_mb": 183.53,
+      "mem_delta_mb": 2.2,
+      "cpu_percent": 0.0
+    },
+    "eda": {
+      "time_sec": 0.9472,
+      "peak_mem_mb": 211.97,
+      "mem_delta_mb": 28.44,
+      "cpu_percent": 97.3
+    }
   }
 }
