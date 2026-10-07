@@ -1,5 +1,5 @@
 data:
-  raw_path: data/raw/pima-indians-diabetes.csv
+  raw_path: data/processed/pima.parquet
   target: Outcome
   test_size: 0.2
   seed: 42
