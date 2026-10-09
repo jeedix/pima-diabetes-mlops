@@ -12,7 +12,6 @@ import seaborn as sns
 
 from src.monitoring import measure_resources
 
-
 DATA_PATH = Path("data/raw/pima-indians-diabetes.csv")
 OUT_DIR = Path("reports/LAB1")
 OUT_DIR.mkdir(parents=True, exist_ok=True)

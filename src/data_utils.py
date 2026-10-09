@@ -1,12 +1,11 @@
 """Чтение данных и генерация чанков."""
 
+from collections.abc import Iterator
 from pathlib import Path
-from typing import Iterator
 
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
-
 
 ZERO_AS_NAN_COLUMNS = ["Glucose", "BloodPressure", "SkinThickness", "Insulin", "BMI"]
 

@@ -18,7 +18,6 @@ from src.config import Lab2Config
 from src.data_utils import split_data
 from src.pipelines import train_full
 
-
 PARQUET = "data/processed/pima.parquet"
 CONFIG = "configs/lab2_full.yaml"
 ARTIFACTS = Path("artifacts")

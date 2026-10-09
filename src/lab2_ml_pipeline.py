@@ -17,9 +17,8 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
 from src.config import Lab2Config
-from src.data_utils import load_pima, split_data, iter_chunks
+from src.data_utils import iter_chunks, load_pima, split_data
 from src.metrics_utils import bootstrap_ci, naive_baseline
-
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIGS = ROOT / "configs"
@@ -66,7 +65,7 @@ def run_full(cfg: Lab2Config, X_train, X_test, y_train, y_test):
     pipe = build_pipeline(cfg)
     pipe.fit(X_train, y_train)
     t_fit = time.perf_counter() - t0
-    current, peak = tracemalloc.get_traced_memory()
+    _, peak = tracemalloc.get_traced_memory()
     tracemalloc.stop()
 
     y_pred = pipe.predict(X_test)
@@ -106,7 +105,7 @@ def run_chunks(cfg: Lab2Config, X_train, X_test, y_train, y_test):
         model.partial_fit(X_chunk, y_chunk, classes=classes)
 
     t_fit = time.perf_counter() - t0
-    current, peak = tracemalloc.get_traced_memory()
+    _, peak = tracemalloc.get_traced_memory()
     tracemalloc.stop()
 
     X_test_arr = X_test.to_numpy(dtype=float)
@@ -173,7 +172,7 @@ def main():
 
     # --- Чанки ---
     with mlflow.start_run(run_name="chunks") as run_chunks_id:
-        model, metrics, perf = run_chunks(chunks_cfg, X_train, X_test, y_train, y_test)
+        _, metrics, perf = run_chunks(chunks_cfg, X_train, X_test, y_train, y_test)
         mlflow.log_params({"mode": "chunks", **chunks_cfg.pipeline.model_params})
         for k, v in metrics.items():
             mlflow.log_metric(f"{k}_value", v["value"])

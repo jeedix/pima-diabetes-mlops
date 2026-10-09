@@ -10,8 +10,7 @@ import yaml
 
 from src.config import Lab2Config
 from src.data_utils import split_data
-from src.pipelines import train_full, train_chunks
-
+from src.pipelines import train_chunks, train_full
 
 ROOT = Path(__file__).resolve().parent.parent
 ARTIFACTS = ROOT / "artifacts"
