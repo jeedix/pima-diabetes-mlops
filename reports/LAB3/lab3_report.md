@@ -67,6 +67,7 @@ BloodPressure, SkinThickness, Insulin, BMI — закодированные пр
 - Val loss падает с 0.66 до 0.50 и выходит на плато.
 - Best epoch = 16 (минимум val loss).
 - Early stopping сработал на 26-й эпохе (patience=10).
+Источник: `loss_curves.png`, run_id full = `0a2843b5d4aa419cb2c6a69e3a083f97`.
 
 **Признак переобучения:** после эпохи 16 train loss продолжает падать,
 val loss стоит на месте. Early stopping остановил обучение вовремя.
@@ -101,6 +102,8 @@ val loss стоит на месте. Early stopping остановил обуч�
 | Recall | 0.704 | 0.556 |
 | F1 | 0.650 | 0.571 |
 | ROC-AUC | 0.813 | 0.815 |
+
+Источник чисел ЛР2: `reports/LAB2/ml_metrics.csv`.
 
 **Вывод:** MLP и LogReg дают **сопоставимое качество по ROC-AUC** (0.815 vs 0.813).
 Recall MLP ниже (0.556 vs 0.704) из-за отсутствия `class_weight=balanced` —
