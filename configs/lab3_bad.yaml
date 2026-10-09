@@ -1,0 +1,21 @@
+data:
+  parquet_path: data/processed/nonexistent.parquet
+  target: Outcome
+  test_size: 0.2
+  seed: 42
+  batch_size: 64
+
+architecture:
+  hidden_sizes: [64, 32]
+  dropout: 1.5
+  use_missing_indicators: true
+  activation: relu
+
+training:
+  mode: full
+  epochs: 100
+  lr: 0.001
+  weight_decay: 0.0
+  early_stopping_patience: 10
+  seed: 42
+  mlflow_experiment: lab3_pima_dl

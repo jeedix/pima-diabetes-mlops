@@ -1,0 +1,19 @@
+=== Контроль: невалидная конфигурация ЛР3 ===
+Файл: configs/lab3_bad.yaml
+Дефекты: parquet_path (не существует), dropout=1.5 (>0.9)
+
+Вывод:
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from src.dl_config import Lab3Config; import yaml; cfg = Lab3Config(**yaml.safe_load(open('configs/lab3_bad.yaml', encoding='utf-8')))
+  File "C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for Lab3Config
+data.parquet_path
+  Value error, Файл не найден: data\processed\nonexistent.parquet [type=value_error, input_value='data/processed/nonexistent.parquet', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error
+architecture.dropout
+  Input should be less than or equal to 0.9 [type=less_than_equal, input_value=1.5, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.13/v/less_than_equal
+
+Вердикт: программа остановилась с объяснением обоих дефектов — негативный контроль пройден.
