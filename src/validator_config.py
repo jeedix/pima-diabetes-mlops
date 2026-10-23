@@ -24,11 +24,12 @@ class ValidatorDataConfig(BaseModel):
 
 
 class ValidatorRuleConfig(BaseModel):
-    """Правила отказа."""
+    """Правила отказа и критерии приёмки."""
 
     distance_threshold: float = Field(5.0, gt=0)
     confidence_threshold: float = Field(0.6, gt=0, lt=1)
     use_mahalanobis: bool = True
+    max_false_reject_rate: float = Field(0.10, gt=0, lt=1)  # новый порог
 
 
 class ValidatorTrainingConfig(BaseModel):

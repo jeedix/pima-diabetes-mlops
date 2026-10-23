@@ -9,6 +9,7 @@ rules:
   distance_threshold: 5.0
   confidence_threshold: 0.6
   use_mahalanobis: true
+  max_false_reject_rate: 0.10
 
 training:
   mode: full
