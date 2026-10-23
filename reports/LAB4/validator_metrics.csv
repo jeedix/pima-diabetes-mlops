@@ -1,0 +1,9 @@
+mode,metric,value,run_id
+full,false_reject_rate,0.0584,c5fc5f3109d44c208d79005cd3400443
+full,foreign_reject_shifted,0.9610,c5fc5f3109d44c208d79005cd3400443
+full,foreign_reject_outliers,1.0000,c5fc5f3109d44c208d79005cd3400443
+full,roc_auc,0.7602,c5fc5f3109d44c208d79005cd3400443
+chunks,false_reject_rate,0.0455,5d90aeafa7b54e9fa3713d2fe928e22e
+chunks,foreign_reject_shifted,0.9610,5d90aeafa7b54e9fa3713d2fe928e22e
+chunks,foreign_reject_outliers,1.0000,5d90aeafa7b54e9fa3713d2fe928e22e
+chunks,roc_auc,0.7609,5d90aeafa7b54e9fa3713d2fe928e22e
