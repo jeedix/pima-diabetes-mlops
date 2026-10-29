@@ -35,3 +35,6 @@ artifacts/
 # ОС
 .DS_Store
 Thumbs.db
+
+# Логи сервиса
+reports/LAB6/service.log
