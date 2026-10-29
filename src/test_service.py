@@ -117,3 +117,42 @@ def test_load_100_predict(client):
             success += 1
     assert success == n
     print(f"\nНагрузка /predict: {success}/{n} успешных (100%)")
+
+
+def test_switch_under_load(client):
+    """Переключение версии под нагрузкой: 0 потерянных запросов."""
+    import threading
+    import time
+
+    results = []
+    errors = []
+
+    def worker():
+        for _ in range(20):
+            r = client.post("/predict", json=VALID_INPUT)
+            if r.status_code == 200:
+                results.append(r.json()["model_version"])
+            else:
+                errors.append(r.status_code)
+
+    # 5 потоков × 20 запросов = 100
+    threads = [threading.Thread(target=worker) for _ in range(5)]
+    for t in threads:
+        t.start()
+
+    # Переключение под нагрузкой
+    time.sleep(0.005)
+    client.post("/promote", json={"version": "v2"})
+    time.sleep(0.005)
+    client.post("/rollback", json={})
+
+    for t in threads:
+        t.join()
+
+    total = len(results) + len(errors)
+    success_rate = len(results) / total if total > 0 else 0
+    print(
+        f"\nНагрузка при переключении: {len(results)}/{total} успешных ({success_rate * 100:.2f}%)"
+    )
+    assert len(errors) == 0, f"Потерянные запросы: {errors}"
+    assert success_rate >= 0.999

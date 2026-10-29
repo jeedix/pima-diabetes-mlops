@@ -3,18 +3,19 @@ platform win32 -- Python 3.14.3, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\User\App
 cachedir: .pytest_cache
 rootdir: C:\Users\User\Desktop\pima-diabetes-mlops
 plugins: anyio-4.15.1, platformdirs-4.12.1, cov-7.1.0
-collecting ... collected 10 items
+collecting ... collected 11 items
 
-src/test_service.py::test_health PASSED                                  [ 10%]
-src/test_service.py::test_predict_valid PASSED                           [ 20%]
-src/test_service.py::test_predict_missing_field PASSED                   [ 30%]
-src/test_service.py::test_predict_wrong_type PASSED                      [ 40%]
-src/test_service.py::test_predict_out_of_range PASSED                    [ 50%]
-src/test_service.py::test_models_list PASSED                             [ 60%]
-src/test_service.py::test_promote_and_rollback PASSED                    [ 70%]
-src/test_service.py::test_promote_unknown_version PASSED                 [ 80%]
-src/test_service.py::test_metrics PASSED                                 [ 90%]
-src/test_service.py::test_load_100_predict PASSED                        [100%]
+src/test_service.py::test_health PASSED                                  [  9%]
+src/test_service.py::test_predict_valid PASSED                           [ 18%]
+src/test_service.py::test_predict_missing_field PASSED                   [ 27%]
+src/test_service.py::test_predict_wrong_type PASSED                      [ 36%]
+src/test_service.py::test_predict_out_of_range PASSED                    [ 45%]
+src/test_service.py::test_models_list PASSED                             [ 54%]
+src/test_service.py::test_promote_and_rollback PASSED                    [ 63%]
+src/test_service.py::test_promote_unknown_version PASSED                 [ 72%]
+src/test_service.py::test_metrics PASSED                                 [ 81%]
+src/test_service.py::test_load_100_predict PASSED                        [ 90%]
+src/test_service.py::test_switch_under_load PASSED                       [100%]
 
 ============================== warnings summary ===============================
 ..\..\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\fastapi\testclient.py:1
@@ -22,4 +23,4 @@ src/test_service.py::test_load_100_predict PASSED                        [100%]
     from starlette.testclient import TestClient as TestClient  # noqa
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-======================== 10 passed, 1 warning in 2.28s ========================
+======================== 11 passed, 1 warning in 2.66s ========================

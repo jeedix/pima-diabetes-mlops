@@ -52,6 +52,7 @@
 | `test_promote_unknown_version` | 404 | ✅ |
 | `test_metrics` | 200, uptime | ✅ |
 | `test_load_100_predict` | 100/100 успешных | ✅ |
+| `test_switch_under_load` | 0 потерянных при переключении | ✅ |
 
 **Все 10 тестов прошли.**
 
@@ -82,9 +83,9 @@
 5. Активная версия v1: probability=0.8405.
 6. После promote v2: probability=0.8107.
 7. После rollback: снова v1, probability=0.8405.
-8. Невалидный вход (`pregnancies=-5`): код 422.
+8. Невалидный вход (`pregnancies=-5`): код 422 — проверено `test_predict_out_of_range` в `src/test_service.py`.
 9. Неизвестная версия (`v99`): код 404.
-10. Uptime сервиса в момент проверки: >200 с.
+10. Uptime сервиса: зафиксирован в логе `reports/LAB6/service.log` (поле `uptime_seconds` в ответе `/health`).
 
 ## 7. Ссылки
 
