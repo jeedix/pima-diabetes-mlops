@@ -1,0 +1,23 @@
+{
+  "versions": {
+    "v1": {
+      "version": "v1",
+      "path": "artifacts\\models\\v1.joblib",
+      "hash": "db7d2a1095b17ede126ad912a46b4f8df7e53da4d9a9fe34e3ddacaaf4a8fbca",
+      "metrics": {
+        "accuracy": 0.73
+      },
+      "status": "working"
+    },
+    "v2": {
+      "version": "v2",
+      "path": "artifacts\\models\\v2.joblib",
+      "hash": "ebf48ef2af36525f0a8caa2792b5908f48db73d3d33d542002319febfed410ba",
+      "metrics": {
+        "accuracy": 0.72
+      },
+      "status": "retired"
+    }
+  },
+  "active": "v1"
+}

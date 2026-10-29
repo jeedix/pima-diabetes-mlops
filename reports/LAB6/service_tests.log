@@ -1,0 +1,25 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.14.3, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\User\Desktop\pima-diabetes-mlops
+plugins: anyio-4.15.1, platformdirs-4.12.1, cov-7.1.0
+collecting ... collected 10 items
+
+src/test_service.py::test_health PASSED                                  [ 10%]
+src/test_service.py::test_predict_valid PASSED                           [ 20%]
+src/test_service.py::test_predict_missing_field PASSED                   [ 30%]
+src/test_service.py::test_predict_wrong_type PASSED                      [ 40%]
+src/test_service.py::test_predict_out_of_range PASSED                    [ 50%]
+src/test_service.py::test_models_list PASSED                             [ 60%]
+src/test_service.py::test_promote_and_rollback PASSED                    [ 70%]
+src/test_service.py::test_promote_unknown_version PASSED                 [ 80%]
+src/test_service.py::test_metrics PASSED                                 [ 90%]
+src/test_service.py::test_load_100_predict PASSED                        [100%]
+
+============================== warnings summary ===============================
+..\..\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 10 passed, 1 warning in 2.28s ========================

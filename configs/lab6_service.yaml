@@ -1,0 +1,3 @@
+models_dir: artifacts/models
+registry_path: reports/LAB6/registry.json
+log_path: reports/LAB6/service.log
