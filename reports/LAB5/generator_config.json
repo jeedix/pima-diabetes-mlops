@@ -1,0 +1,18 @@
+{
+  "data": {
+    "real_parquet": "data\\processed\\pima.parquet",
+    "output_parquet": "artifacts\\synthetic_random.parquet",
+    "target": "Outcome",
+    "n_samples": 768,
+    "seed": 42
+  },
+  "output": {
+    "mode": "random",
+    "drift": {
+      "shift_mean": 0.0,
+      "flip_labels": 0.0,
+      "scale_features": 1.0
+    }
+  },
+  "mlflow_experiment": "lab5_pima_generator"
+}

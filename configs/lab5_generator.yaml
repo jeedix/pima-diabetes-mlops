@@ -1,0 +1,15 @@
+data:
+  real_parquet: data/processed/pima.parquet
+  output_parquet: artifacts/synthetic_pima.parquet
+  target: Outcome
+  n_samples: 768
+  seed: 42
+
+output:
+  mode: similar
+  drift:
+    shift_mean: 0.0
+    flip_labels: 0.0
+    scale_features: 1.0
+
+mlflow_experiment: lab5_pima_generator
