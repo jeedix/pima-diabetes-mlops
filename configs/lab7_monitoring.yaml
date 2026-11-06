@@ -1,0 +1,21 @@
+service:
+  base_url: "http://127.0.0.1:8000"
+  models_dir: artifacts/models
+  registry_path: reports/LAB6/registry.json
+
+benchmark:
+  n_workers: [1, 2, 4]
+  n_requests: 100
+  n_warmup: 10
+  repeats: 3
+
+drift:
+  window_size: 300
+  step: 100
+  psi_threshold: 0.5
+  ks_threshold: 0.3
+  csi_threshold: 0.3
+  baseline_path: data/processed/pima.parquet
+  output_csv: reports/LAB7/drift_metrics.csv
+  output_benchmark: reports/LAB7/parallel_benchmark.csv
+  mlflow_experiment: lab7_pima_monitoring
