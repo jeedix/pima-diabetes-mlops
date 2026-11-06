@@ -1,0 +1,6 @@
+{"timestamp": "2026-11-06T18:50:01", "kind": "C2", "status": "ok", "details": "Сервис не упал при отказе исполнителя", "duration_sec": 0.0}
+{"timestamp": "2026-11-06T18:50:06", "kind": "C1", "status": "kill_detected", "details": "Сервис остановлен (PID=15476)", "duration_sec": 0.0}
+{"timestamp": "2026-11-06T18:50:06", "kind": "C3", "status": "load_rejected", "details": "Повреждённая модель отклонена, оригинал восстановлен", "duration_sec": 0.0}
+{"timestamp": "2026-11-06T18:50:06", "kind": "C4", "status": "degraded", "details": "Обрыв потока, переход в деградированный режим", "duration_sec": 0.0}
+{"timestamp": "2026-11-06T18:50:07", "kind": "C4", "status": "recovered", "details": "Возобновление с чекпоинта", "duration_sec": 0.0}
+{"timestamp": "2026-11-06T18:50:07", "kind": "C5", "status": "rejected", "details": "Невалидный конфиг отклонён: 2 validation errors for Lab2Config\ndata.raw_path\n  Value error, Файл не найден: nonexistent.csv [type=value_error, input_value='nonexistent.csv', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error\ndata.test_size\n  Input should be less than or equal to 0.4 [type=less_than_equal, input_value=1.5, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.13/v/less_than_equal", "duration_sec": 0.0}
