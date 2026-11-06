@@ -1,0 +1,3 @@
+{"timestamp": "2026-11-06T13:35:57.920791+00:00", "metric": "psi_glucose", "value": 12.4, "threshold": 0.5, "level": "critical", "action": "promote_rollback"}
+{"timestamp": "2026-11-06T13:35:57.921221+00:00", "metric": "psi_outcome", "value": 0.25, "threshold": 0.1, "level": "warning", "action": "log"}
+{"timestamp": "2026-11-06T13:35:57.921601+00:00", "metric": "false_reject_rate", "value": 0.15, "threshold": 0.1, "level": "warning", "action": "notify"}
