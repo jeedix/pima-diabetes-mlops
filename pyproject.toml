@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pima-mlops"
+version = "0.1.0"
+description = "Сквозной проект MLOps: вариант 33 (Pima Indians Diabetes)"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Байбурдин Максим" }]
+
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "scikit-learn>=1.3",
+    "pyarrow>=14.0",
+    "fastparquet>=2024.1",
+    "psutil>=5.9",
+    "pydantic>=2.5",
+    "mlflow>=2.10",
+    "joblib>=1.3",
+    "torch>=2.1",
+    "fastapi>=0.109",
+    "uvicorn>=0.27",
+    "httpx>=0.26",
+    "evidently>=0.4",
+    "scipy>=1.11",
+    "matplotlib>=3.8",
+    "seaborn>=0.13",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
+    "pre-commit>=3.5",
+]
+
+[project.scripts]
+pima-train-ml = "src.cli.train_ml:main"
+pima-train-dl = "src.cli.train_dl:main"
+pima-train-validator = "src.cli.train_validator:main"
+pima-generate = "src.cli.generate:main"
+pima-serve = "src.cli.serve:main"
+pima-evaluate = "src.cli.evaluate:main"
+pima-monitor = "src.cli.monitor:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "src"]
+python_files = ["test_*.py"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
