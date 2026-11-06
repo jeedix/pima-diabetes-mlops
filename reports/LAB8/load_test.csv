@@ -1,0 +1,2 @@
+n_requests,duration_sec,errors,success_rate,rps,p50_ms,p95_ms,p99_ms
+10000,53.99,0,100.0,185.21,2.44,20.01,26.66
