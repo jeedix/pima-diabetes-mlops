@@ -1,0 +1,2 @@
+{"timestamp": "2026-11-10T10:57:07.896624+00:00", "metric": "batch_worker_failure", "value": 1.0, "threshold": 0.5, "level": "warning", "action": "retry"}
+{"timestamp": "2026-11-10T10:57:18.359252+00:00", "metric": "corrupt_model", "value": 1.0, "threshold": 0.5, "level": "critical", "action": "reject_load"}
