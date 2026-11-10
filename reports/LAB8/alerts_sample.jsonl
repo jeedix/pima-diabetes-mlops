@@ -1,3 +1,8 @@
-{"timestamp": "2026-11-06T13:35:57.920791+00:00", "metric": "psi_glucose", "value": 12.4, "threshold": 0.5, "level": "critical", "action": "promote_rollback"}
-{"timestamp": "2026-11-06T13:35:57.921221+00:00", "metric": "psi_outcome", "value": 0.25, "threshold": 0.1, "level": "warning", "action": "log"}
-{"timestamp": "2026-11-06T13:35:57.921601+00:00", "metric": "false_reject_rate", "value": 0.15, "threshold": 0.1, "level": "warning", "action": "notify"}
+{"timestamp": "2026-11-10T10:03:46.729773+00:00", "metric": "psi_glucose", "value": 3.2588, "threshold": 0.1, "level": "critical", "action": "log"}
+{"timestamp": "2026-11-10T10:04:47.442939+00:00", "metric": "psi_glucose", "value": 2.0287, "threshold": 0.1, "level": "critical", "action": "log"}
+{"timestamp": "2026-11-10T10:05:47.452937+00:00", "metric": "psi_glucose", "value": 2.2233, "threshold": 0.1, "level": "critical", "action": "log"}
+{"timestamp": "2026-11-10T10:06:49.233083+00:00", "metric": "psi_glucose", "value": 3.2185, "threshold": 0.1, "level": "critical", "action": "log"}
+{"timestamp": "2026-11-10T10:07:49.435754+00:00", "metric": "psi_glucose", "value": 2.0287, "threshold": 0.1, "level": "critical", "action": "log"}
+{"timestamp": "2026-11-10T10:08:50.659206+00:00", "metric": "psi_glucose", "value": 3.2185, "threshold": 0.1, "level": "critical", "action": "log"}
+{"timestamp": "2026-11-10T10:09:51.583667+00:00", "metric": "psi_glucose", "value": 2.2233, "threshold": 0.1, "level": "critical", "action": "log"}
+{"timestamp": "2026-11-10T10:10:52.899142+00:00", "metric": "psi_glucose", "value": 2.2301, "threshold": 0.1, "level": "critical", "action": "log"}
